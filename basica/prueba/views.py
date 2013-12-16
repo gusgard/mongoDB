@@ -1,7 +1,6 @@
 from django.http import HttpResponse
-
-
 from prueba.models import Poll, Choice
+from django.shortcuts import render_to_response
 
 
 #user = authenticate(username='user', password='user')
@@ -14,7 +13,8 @@ def index(request):
     poll.choices.append(choice)
     poll.save()
     print poll.question
-    return HttpResponse("Hello, world. You're at the poll index.")
+    return render_to_response('charts.html')
+    #return HttpResponse("Hello, world. You're at the poll index.")
 
 
 def detail(request, poll_id):
